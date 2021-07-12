@@ -8,11 +8,16 @@
             <a href="" class="btn btn-primary btn-sm btn-block">Create Customers</a>
             <table class="table table-5m">
                 <tr>
+                    <th>
+                    </th>
                     <th>Customers</th>
                     <th>Phone No.</th>
                 </tr>
                 {% for customer in customers %}
                 <tr>
+                    <td>
+                        <a href="{% url 'customer' customer.id %}" class="btn btn-sm btn-info">View</a>
+                    </td>
                     <td>{{customer.name}}</td>
                     <td>{{customer.phone}}</td>
                 </tr> {% endfor %}
@@ -38,10 +43,10 @@
                     <td>{{order.date_created}}</td>
                     <td>{{order.status}}</td>
                     <td>
-                        <a href="">Update</a>
+                        <a href="" class="btn btn-sm btn-info">Update</a>
                     </td>
                     <td>
-                        <a href="">Delete</a>
+                        <a href="" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr> {% endfor %}
             </table>
