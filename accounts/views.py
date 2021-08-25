@@ -32,7 +32,7 @@ def registerPage(request):
 			return redirect('login')
 		
 		else:
-    			return HttpResponse("NOPE")
+    			return HttpResponse("Something went wrong")
 
 	context = {'form':form}
 	return render(request, 'accounts/register.html', context)

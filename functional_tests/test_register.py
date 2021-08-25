@@ -25,22 +25,35 @@ class TestLogin(TransactionTestCase):
         self.regLink.click()
         try:
             self.username = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "id_username")))
-            self.username.send_keys("dxfxxdcffxfxfxf")
+            self.username.send_keys("vnjdfngvjfdbjdfnnjsjsdhfusdhbfsdhbfuss")
             self.email = self.browser.find_element_by_id("id_email")
-            self.email.send_keys("yghvtfvghvguvfhhvgv@gmail.com")
+            self.email.send_keys("hfuhaeufhaufhauifhuawhfuiawh@gmail.com")
             self.password1 = self.browser.find_element_by_id("id_password1")
-            self.password1.send_keys("ftfftufctfyvcgfdyvfc1!")
+            self.password1.send_keys("dgyawgdygwaydgwaydg!")
             self.password2 = self.browser.find_element_by_id("id_password2")
-            self.password2.send_keys("ftfftufctfyvcgfdyvfc1!")
+            self.password2.send_keys("dgyawgdygwaydgwaydg!")
             
         except Exception as err:
             print(err)
-            self.browser.quit()
         
         try:
             self.registerButton = self.browser.find_element_by_class_name("btn")
             self.registerButton.click()
         except Exception as err:
             print(err)
-        
-        time.sleep(2000)
+
+    def test_login(self):
+        try:
+            self.username = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "username")))
+            self.username.send_keys("vnjdfngvjfdbjdfnnjsjsdhfusdhbfsdhbfuss")
+            self.password = self.browser.find_element_by_id("password")
+            self.password.send_keys("dgyawgdygwaydgwaydg!")
+            
+        except Exception as err:
+            print(err)
+
+        try:
+            self.registerButton = self.browser.find_element_by_class_name("btn")
+            self.registerButton.click()
+        except Exception as err:
+            print(err)
