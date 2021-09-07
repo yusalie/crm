@@ -23,7 +23,7 @@ class TestLogin(TransactionTestCase):
             self.username = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "username")))
             self.username.send_keys("sufster")
             self.password = self.browser.find_element_by_id("password")
-            self.password.send_keys("glaceon1!")
+            self.password.send_keys("*********")
             
         except Exception as err:
             print(err)
