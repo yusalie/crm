@@ -18,12 +18,12 @@ class TestLogin(TransactionTestCase):
         self.browser = webdriver.Chrome("functional_tests\chromedriver.exe")
         self.browser.get("http://127.0.0.1:8000/login/?next=/")
 
-    def test_login(self):
+    def test_update_order(self):
         try:
             self.username = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "username")))
-            self.username.send_keys("vnjdfngvjfdbjdfnnjsjsdhfusdhbfsdhbfuss")
+            self.username.send_keys("sufster")
             self.password = self.browser.find_element_by_id("password")
-            self.password.send_keys("dgyawgdygwaydgwaydg!")
+            self.password.send_keys("glaceon1!")
             
         except Exception as err:
             print(err)
@@ -33,23 +33,27 @@ class TestLogin(TransactionTestCase):
             self.lgnButton.click()
         except Exception as err:
             print(err)
-        
+            
         try:
-            self.setLink = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.CLASS_NAME, "nav-link")))
-            self.setLink.click()
+            self.update = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "update")))
+            
+            self.update.click()
         except Exception as err:
             print(err)
+
         try:
-            self.phoneNum = self.browser.find_element_by_id("id_phone")
-            self.phoneNum.send_keys("0723659852")
-            self.email = self.browser.find_element_by_id("id_email")
-            self.email.send_keys("email1@email.com")
-        except Exception as err:
-            print(err)
-        
-        try:
-            self.settingButton = self.browser.find_element_by_class_name("btn")
-            self.settingButton.click()
-            time.sleep(50)
+            self.person = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "id_customer")))
+            self.person.click()
+            self.value = WebDriverWait(self.browser, 50).until(EC.presence_of_all_elements_located(By.XPATH, "option=4"))
+            self.value.click()
+            self.item = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "id_product")))
+            self.item.click()
+            self.itemvalue = WebDriverWait(self.browser, 50).until(EC.presence_of_all_elements_located(By.XPATH, "option=3"))
+            self.itemvalue.click()
+            self.status = WebDriverWait(self.browser, 50).until(EC.presence_of_element_located((By.ID, "id_product")))
+            self.status.click()
+            self.statusvalue = WebDriverWait(self.browser, 50).until(EC.presence_of_all_elements_located(By.XPATH, "option=3"))
+            self.statusvalue.click()
+            time.sleep(5000)
         except Exception as err:
             print(err)
